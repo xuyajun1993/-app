@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#eee"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:id="@+id/title"
+     
+            android:gravity="center_horizontal|center_vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/submitbgpressed"
+                android:text="设置"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbarStyle="outsideOverlay" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >          
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout7"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true" >
+                    <TextView
+                        android:id="@+id/StxtView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="学号："
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/SimageView7"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                       android:layout_alignBottom="@id/StxtView7"
+                        android:layout_alignParentRight="true"
+                       
+                        android:gravity="center"
+                        android:text="1907100615" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout8"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:clickable="true" >
+                    <TextView
+                        android:id="@+id/StxtView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="个人门户密码"
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+                   <TextView
+                        android:id="@+id/SimageView8"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                       android:layout_alignBottom="@id/StxtView8"
+                        android:layout_alignParentRight="true"
+                       android:password="true"
+                        android:gravity="center"
+                        android:text="1907100615" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout9"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:clickable="true">
+                    <TextView
+                        android:id="@+id/StxtView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="教务系统密码"
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+                      <TextView
+                        android:id="@+id/SimageView9"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                       android:layout_alignBottom="@id/StxtView9"
+                        android:layout_alignParentRight="true"
+                        android:password="true"
+                        android:gravity="center"
+                        android:text="1907100615" />
+                </RelativeLayout>
+                <!--   ********************************************************************   -->
+                
+                <RelativeLayout
+                        android:id="@+id/SrelativeLayoutT"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                         >      
+                </RelativeLayout>
+                <!--   ***********************************************************************   -->
+             
+                <!--   ***********************************************************************   -->
+
+                <!--   ***********************************************************************   -->
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true">
+                    <TextView
+                        android:id="@+id/StxtView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="新消息提示"
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+
+                    <Switch
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/StxtView4"
+                        android:layout_alignBottom="@+id/StxtView4"
+                       android:layout_marginLeft="180dp"
+                         />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:clickable="true" >
+                    <TextView
+                        android:id="@+id/StxtView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="检查新版本"
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+                   
+                </RelativeLayout>
+                <!--   ***********************************************************************   -->
+                <RelativeLayout
+                    android:id="@+id/SrelativeLayout6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true" >
+                    <TextView
+                        android:id="@+id/StxtView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="关于微校"
+                        android:textSize="20sp"
+                        android:textColor="#000" />
+                   
+                </RelativeLayout>
+            </LinearLayout>
+    </ScrollView>
+</LinearLayout>

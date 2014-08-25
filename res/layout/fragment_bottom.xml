@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/fragment_bottom_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:background="@null"
+            android:drawableTop="@drawable/news_selector"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:text="信息"
+            android:textColor="@color/color_radiotext"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/divider" />
+
+        <RadioButton
+            android:id="@+id/fragment_bottom_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@null"
+            android:drawableTop="@drawable/service_selector"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:text="服务"
+            android:textColor="@color/color_radiotext"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/divider" />
+
+        <RadioButton
+            android:id="@+id/fragment_bottom_personal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@null"
+            android:drawableTop="@drawable/personal_selector"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:text="个人"
+            android:textColor="@color/color_radiotext"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+</LinearLayout>

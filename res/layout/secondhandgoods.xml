@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/newcontentrl"
+        android:layout_width="fill_parent"
+        android:layout_height="40sp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/titlebar"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/goods_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/tv_allgoods"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/allgoods_selector"
+            android:drawableRight="@drawable/spinner"
+            android:gravity="center"
+            android:text="全部二手物品"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/goods_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/goods_back"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/goods_add"
+            android:background="@android:color/transparent"
+            android:src="@drawable/searchnormal" />
+
+        <ImageButton
+            android:id="@+id/goods_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/goods_search"
+            android:layout_marginRight="17dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/addsecond_selector" />
+
+    </RelativeLayout>
+
+    <com.xyj.hnu.listview.MyListView
+        android:id="@+id/lv_secondgoods"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f4f4"
+        android:divider="@drawable/dashedline"
+        android:fastScrollEnabled="true" >
+    </com.xyj.hnu.listview.MyListView>
+
+</LinearLayout>
