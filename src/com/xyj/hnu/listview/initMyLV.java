@@ -20,6 +20,7 @@ import com.xyj.hnu.R;
 import com.xyj.hnu.adapter.AdvViewPager;
 import com.xyj.hnu.adapter.MyListViewAdapter;
 import com.xyj.hnu.adapter.bannerPageAdapter;
+import com.xyj.hnu.tools.Metrics;
 
 /**
  * 初始化头条，推荐等板块 根据类型不同返回不同类型的信息
@@ -27,7 +28,7 @@ import com.xyj.hnu.adapter.bannerPageAdapter;
  * @author xyj
  * 
  */
-public class initMyLV  {
+public class initMyLV {
 	// 代表当前页
 	int currentPage = 0;
 	LayoutInflater inflater;
@@ -35,6 +36,7 @@ public class initMyLV  {
 	MyListView myLV;
 	RequestQueue queue;
 	MyListViewAdapter listViewAdapter;
+	int height;
 
 	public initMyLV(LayoutInflater inflater, Activity activity,
 			MyListView myLV, RequestQueue queue) {
@@ -42,37 +44,13 @@ public class initMyLV  {
 		this.activity = activity;
 		this.myLV = myLV;
 		this.queue = queue;
-		System.out.println("initmylv");
+		// 设置banner高度
+		height = (9 * Metrics.getWidthPixels()) / 16;
 	}
 
 	// 初始化信息，
 	public void initNews() {
-		// 创建请求队列对象
-//		myLV.setPullLoadEnable(true);
-//		myLV.setXListViewListener(this);
-//		List<newsBean> head_list = new ArrayList<newsBean>();
-//		for (int i = 0; i < 10; i++) {
-//			newsBean bean = new newsBean(
-//					"http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",
-//					"安倍死于地震", "北京时间下午三点钟安倍于地震中跌入海中", 2000);
-//			head_list.add(bean);
-//		}
-//		listViewAdapter = new MyListViewAdapter(activity,
-//				head_list, queue);
-//		myLV.setAdapter(listViewAdapter);
-//		myLV.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				//跳转到正文界面
-//				Intent intent=new Intent(view.getContext(), newsContent.class);
-//				activity.startActivity(intent);
-//				
-//			}
-//		});
-
-		if (myLV.getId() == R.id.lv_head) {
+		if (myLV.getId() == R.id.lv_sug) {
 			RelativeLayout rlAdv = (RelativeLayout) inflater.inflate(
 					R.layout.sliding_advertisement, null);
 			final AdvViewPager advViewPager = (AdvViewPager) rlAdv
@@ -81,6 +59,7 @@ public class initMyLV  {
 			// 获取banner图片
 			// final List<View> bannerList =
 			// BannerUtils.getBannerList(activity);
+			advViewPager.getLayoutParams().height = height;
 			final List<ImageView> bannerIvList = new ArrayList<ImageView>();
 			ImageView iv1 = new ImageView(activity);
 			iv1.setScaleType(ScaleType.FIT_XY);
@@ -129,7 +108,9 @@ public class initMyLV  {
 			ImageView imageView;
 			for (int i = 0; i < bannerIvList.size(); i++) {
 				imageView = new ImageView(activity);
-				imageView.setLayoutParams(new LayoutParams(20, 20));
+				LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(15, 15);
+				layout.setMargins(10, 0, 0, 0);
+				imageView.setLayoutParams(layout);
 				DotArray[i] = imageView;
 				if (i == 0) {
 					DotArray[i]
@@ -139,6 +120,7 @@ public class initMyLV  {
 							.setBackgroundResource(R.drawable.banner_dian_blur);
 				}
 				group.addView(DotArray[i]);
+				;
 			}
 			// 实现banner自动播放
 			final Handler handler = new Handler() {
@@ -167,10 +149,11 @@ public class initMyLV  {
 				}
 			}).start();
 			myLV.addHeaderView(rlAdv);
-		}
-		else{
-			LinearLayout ll=(LinearLayout) inflater.inflate(R.layout.ivbanner, null);
-			ImageView iv=(ImageView) ll.findViewById(R.id.iv_banner);
+		} else {
+			LinearLayout ll = (LinearLayout) inflater.inflate(
+					R.layout.ivbanner, null);
+			ImageView iv = (ImageView) ll.findViewById(R.id.iv_banner);
+			iv.getLayoutParams().height = height;
 			iv.setBackgroundResource(R.drawable.yuelu);
 			myLV.addHeaderView(ll);
 		}

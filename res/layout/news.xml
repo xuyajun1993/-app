@@ -3,91 +3,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-<FrameLayout 
-    android:layout_width="match_parent"
-            android:layout_height="40dp"
-    android:background="#d1534b"
-    
-    >
-    <ImageView
-        android:id="@+id/cursor"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/cursor" />
-    <LinearLayout
-        android:id="@+id/layout"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-         >
+        android:background="#d1534b" >
 
-        <TextView
-            android:id="@+id/txtToday"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="今日"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-             />
+        <ImageView
+            android:id="@+id/cursor"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/cursor" />
 
-        <TextView
-            android:id="@+id/txtWeek"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="本周"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-             />
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" >
 
-        <TextView
-            android:id="@+id/txtNoti"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="通知"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-             />
+            <TextView
+                android:id="@+id/txtSug"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="推荐"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/txtLec"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="讲座"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-             />
+            <TextView
+                android:id="@+id/txtNoti"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="通知"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/txtActi"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="活动"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-             />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtActi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="活动"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/cursorbg" />
+            <TextView
+                android:id="@+id/txtLec"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="讲座"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/txtMy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cursorbg" />
+    </FrameLayout>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vPager_news"
         android:layout_width="match_parent"

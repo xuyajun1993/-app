@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-public class weekFragment extends Fragment implements IXListViewListener{
+public class MyFragment extends Fragment implements IXListViewListener{
 
 	private MyListView listView;
 	private MyListViewAdapter listViewAdapter;
@@ -23,15 +23,15 @@ public class weekFragment extends Fragment implements IXListViewListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v=inflater.inflate(R.layout.news_sug, null);
-		listView = (MyListView) v.findViewById(R.id.lv_sug);
+		View v=inflater.inflate(R.layout.news_my, null);
+		listView = (MyListView) v.findViewById(R.id.lv_my);
 		listView.setPullLoadEnable(true);
 		listView.setXListViewListener(this);
 		initMyLV lv = new initMyLV(inflater, getActivity(), listView,
 				Configs.queue);
 		lv.initNews();
 		listViewAdapter = new MyListViewAdapter(getActivity(),
-				Configs.head_list, Configs.queue);
+				Configs.my_list, Configs.queue);
 		listView.setAdapter(listViewAdapter);
 		return v;
 	}

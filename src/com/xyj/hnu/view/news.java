@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.database.MergeCursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,12 +21,11 @@ import android.widget.TextView;
 
 import com.xyj.hnu.R;
 import com.xyj.hnu.fragment.GeneralFragment;
-import com.xyj.hnu.listview.MyListView;
 import com.xyj.hnu.news.actiFragment;
 import com.xyj.hnu.news.lecFragment;
 import com.xyj.hnu.news.notiFragment;
-import com.xyj.hnu.news.todayFragment;
-import com.xyj.hnu.news.weekFragment;
+import com.xyj.hnu.news.SugFragment;
+import com.xyj.hnu.news.MyFragment;
 import com.xyj.hnu.tools.Metrics;
 
 public class news extends GeneralFragment implements OnClickListener {
@@ -36,16 +34,11 @@ public class news extends GeneralFragment implements OnClickListener {
 	private ImageView cursor,imageView1;
 	private int current;
 	private List<Fragment> views = new ArrayList<Fragment>();// 用来保存几个view
-	private TextView txtToday;
-	private TextView txtWeek;
-	private TextView txtLec;
-	private TextView txtNoti;
-	private TextView txtActi;
-	MyListView lv_head;
-	MyListView lv_sug;
-	MyListView lv_noti;
-	MyListView lv_lec;
-	MyListView lv_acti;
+	private TextView tvNoti;
+	private TextView tvActi;
+	private TextView tvLec;
+	private TextView tvSug;
+	private TextView tvMy;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,16 +48,16 @@ public class news extends GeneralFragment implements OnClickListener {
 		cursor = (ImageView) view.findViewById(R.id.cursor);
 		imageView1 = (ImageView) view.findViewById(R.id.imageView1);
 		// 给每个标题监听
-		txtToday = ((TextView) view.findViewById(R.id.txtToday));
-		txtWeek = ((TextView) view.findViewById(R.id.txtWeek));
-		txtLec = ((TextView) view.findViewById(R.id.txtLec));
-		txtNoti = ((TextView) view.findViewById(R.id.txtNoti));
-		txtActi = ((TextView) view.findViewById(R.id.txtActi));
-		txtToday.setOnClickListener(this);
-		txtWeek.setOnClickListener(this);
-		txtActi.setOnClickListener(this);
-		txtLec.setOnClickListener(this);
-		txtNoti.setOnClickListener(this);
+		tvNoti = ((TextView) view.findViewById(R.id.txtNoti));
+		tvActi = ((TextView) view.findViewById(R.id.txtActi));
+		tvLec = ((TextView) view.findViewById(R.id.txtLec));
+		tvSug = ((TextView) view.findViewById(R.id.txtSug));
+		tvMy = ((TextView) view.findViewById(R.id.txtMy));
+		tvSug.setOnClickListener(this);
+		tvNoti.setOnClickListener(this);
+		tvActi.setOnClickListener(this);
+		tvMy.setOnClickListener(this);
+		tvLec.setOnClickListener(this);
 		System.out.println("oncreateview");
 		viewPager.setAdapter(new MyPageAdaper(getActivity()
 				.getSupportFragmentManager()));
@@ -75,7 +68,7 @@ public class news extends GeneralFragment implements OnClickListener {
 		LayoutParams imageViewlp = imageView1.getLayoutParams();
 		cursorlp.width = (Metrics.getWidthPixels()-2*imageViewlp.width)/5;
 		
-		//cursorlp.height = txtTodaylp.height;
+		//cursorlp.height = tvNotilp.height;
 		cursor.setLayoutParams(cursorlp);
 		
 		current = cursor.getLeft();
@@ -86,11 +79,11 @@ public class news extends GeneralFragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		views.add(new todayFragment());
-		views.add(new weekFragment());
+		views.add(new SugFragment());
 		views.add(new notiFragment());
-		views.add(new lecFragment());
 		views.add(new actiFragment());
+		views.add(new lecFragment());
+		views.add(new MyFragment());
 	}
 
 	@SuppressLint("ResourceAsColor")
@@ -108,29 +101,27 @@ public class news extends GeneralFragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.txtToday:
+		case R.id.txtSug:
 			viewPager.setCurrentItem(0);
-			changeCursor(txtToday);
+			changeCursor(tvSug);
 			break;
-		case R.id.txtWeek:
-			viewPager.setCurrentItem(1);
-			changeCursor(txtWeek);
-			break;
-
 		case R.id.txtNoti:
+			viewPager.setCurrentItem(1);
+			changeCursor(tvNoti);
+			break;
+		case R.id.txtActi:
 			viewPager.setCurrentItem(2);
-			changeCursor(txtNoti);
+			changeCursor(tvActi);
 			break;
 
 		case R.id.txtLec:
 			viewPager.setCurrentItem(3);
-			changeCursor(txtLec);
+			changeCursor(tvLec);
 			break;
-		case R.id.txtActi:
+
+		case R.id.txtMy:
 			viewPager.setCurrentItem(4);
-			changeCursor(txtActi);
-			break;
-		default:
+			changeCursor(tvMy);
 			break;
 		}
 	}
@@ -187,127 +178,21 @@ public class news extends GeneralFragment implements OnClickListener {
 		public void onPageSelected(int arg0) {
 			switch (arg0) {
 			case 0:
-				changeCursor(txtToday);
+				changeCursor(tvSug);
 				break;
 			case 1:
-				changeCursor(txtWeek);
+				changeCursor(tvNoti);
 				break;
 			case 2:
-				changeCursor(txtNoti);
+				changeCursor(tvActi);
 				break;
 			case 3:
-				changeCursor(txtLec);
+				changeCursor(tvLec);
 				break;
 			case 4:
-				changeCursor(txtActi);
+				changeCursor(tvMy);
 				break;
 			}
-			// int one = 2 * offset + cursorWidth;
-			// int two = one * 2;
-			// int three = one * 3;
-			// int four = one * 4;
-			// switch (originalIndex) {
-			// case 0:
-			// txtToday.setTextColor(getResources().getColor(R.color.black));
-			// if (arg0 == 1) {
-			// animation = new TranslateAnimation(0, one, 0, 0);
-			// txtWeek.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 2) {
-			// animation = new TranslateAnimation(0, two, 0, 0);
-			// txtNoti.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 3) {
-			// animation = new TranslateAnimation(0, three, 0, 0);
-			// txtLec.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 4) {
-			// animation = new TranslateAnimation(0, four, 0, 0);
-			// txtActi.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// break;
-			// case 1:
-			// txtWeek.setTextColor(getResources().getColor(R.color.black));
-			// if (arg0 == 0) {
-			// animation = new TranslateAnimation(one, 0, 0, 0);
-			// txtToday.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 2) {
-			// animation = new TranslateAnimation(one, two, 0, 0);
-			// txtNoti.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 3) {
-			// animation = new TranslateAnimation(one, three, 0, 0);
-			// txtLec.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// if (arg0 == 4) {
-			// animation = new TranslateAnimation(one, four, 0, 0);
-			// txtActi.setTextColor(getResources().getColor(R.color.red));
-			// }
-			// break;
-			// case 2:
-			// txtNoti.setTextColor(getResources().getColor(R.color.black));
-			// if (arg0 == 1) {
-			// txtWeek.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(two, one, 0, 0);
-			// }
-			// if (arg0 == 0) {
-			// txtToday.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(two, 0, 0, 0);
-			// }
-			// if (arg0 == 3) {
-			// txtLec.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(two, three, 0, 0);
-			// }
-			// if (arg0 == 4) {
-			// txtActi.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(two, four, 0, 0);
-			// }
-			// break;
-			// case 3:
-			// txtLec.setTextColor(getResources().getColor(R.color.black));
-			// if (arg0 == 1) {
-			// txtWeek.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(three, one, 0, 0);
-			// }
-			// if (arg0 == 0) {
-			// txtToday.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(three, 0, 0, 0);
-			// }
-			// if (arg0 == 2) {
-			// txtNoti.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(three, two, 0, 0);
-			// }
-			// if (arg0 == 4) {
-			// txtActi.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(three, four, 0, 0);
-			// }
-			// break;
-			// case 4:
-			// txtActi.setTextColor(getResources().getColor(R.color.black));
-			// if (arg0 == 1) {
-			// txtWeek.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(four, one, 0, 0);
-			// }
-			// if (arg0 == 0) {
-			// txtToday.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(four, 0, 0, 0);
-			// }
-			// if (arg0 == 3) {
-			// txtLec.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(four, three, 0, 0);
-			// }
-			// if (arg0 == 2) {
-			// txtNoti.setTextColor(getResources().getColor(R.color.red));
-			// animation = new TranslateAnimation(four, two, 0, 0);
-			// }
-			// break;
-			// }
-			// animation.setFillAfter(true);
-			// animation.setDuration(300);
-			// cursor.startAnimation(animation);
-			//
-			// originalIndex = arg0;
 		}
 
 	}

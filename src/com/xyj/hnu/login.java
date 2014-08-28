@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xyj.hnu.app.AppContext;
 import com.xyj.hnu.fragment.MainFragment;
 import com.xyj.hnu.tools.Metrics;
 
@@ -56,15 +57,18 @@ public class login extends Activity {
 		btn_login.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				AppContext appContext=(AppContext)getApplication();
 				user_xh = ed_user.getText().toString().trim();
 				passwd = ed_pswd.getText().toString().trim();
 				if(TextUtils.isEmpty(user_xh)||TextUtils.isEmpty(passwd)){
 					Toast.makeText(login.this, "请填写学号和密码", 0).show();
-				}else if (networkState()) {
+				}else if (appContext.isNetworkConnected()) {
 					showLoading();
 //					LoginThread thread = new LoginThread(user_xh, passwd,
 //							handler);
 //					thread.start();
+				}else{
+					Toast.makeText(login.this, "网络连接不可用", 0).show();
 				}
 			}
 		});
@@ -96,15 +100,4 @@ public class login extends Activity {
 		ed_pswd.setHeight(height);
 	}
 
-	// 检查网络状态
-	private boolean networkState() {
-		ConnectivityManager manager = (ConnectivityManager) this
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo info = manager.getActiveNetworkInfo();
-		if (info == null || !info.isConnected()) {
-			Toast.makeText(login.this, "网络连接不可用", 0).show();
-			return false;
-		}
-		return true;
-	}
 }

@@ -9,14 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.xyj.hnu.R;
-import com.xyj.hnu.domain.takeoutBean;
 import com.xyj.hnu.fragment.GeneralFragment;
 import com.xyj.hnu.service.emptyroomService;
-import com.xyj.hnu.service.ktvService;
 import com.xyj.hnu.service.movie;
-import com.xyj.hnu.service.repairPost;
-import com.xyj.hnu.service.secondhandgoodsService;
-import com.xyj.hnu.service.takeoutService;
 
 public class service extends GeneralFragment implements OnClickListener {
 	private ImageView iv_query;
@@ -54,35 +49,35 @@ public class service extends GeneralFragment implements OnClickListener {
 			startActivity(intent_emptyroom);
 			break;
 
-		//跳转到故障报修
-		case R.id.iv_repair:
-			Intent intent_repair=new Intent(getActivity(), repairPost.class);
-			startActivity(intent_repair);
-			break;
-			
-        //跳转到二手物品
-		case R.id.iv_secondgoods:
-			Intent intent_secondgoods=new Intent(getActivity(), secondhandgoodsService.class);
-			startActivity(intent_secondgoods);
-			break;
-			
-        //跳转到外卖
-		case R.id.iv_takeout:
-			Intent intent_takeout=new Intent(getActivity(), takeoutService.class);
-			startActivity(intent_takeout);
-			break;
-			
-        //跳转到ktv
-		case R.id.iv_ktv:
-			Intent intent_ktv=new Intent(getActivity(), ktvService.class);
-			startActivity(intent_ktv);
-			break;
-			
-	    //跳转到电影
-		case R.id.iv_movie:
-			Intent intent_movie=new Intent(getActivity(), movie.class);
-			startActivity(intent_movie);
-			break;
+//		//跳转到故障报修
+//		case R.id.iv_repair:
+//			Intent intent_repair=new Intent(getActivity(), repairPost.class);
+//			startActivity(intent_repair);
+//			break;
+//			
+//        //跳转到二手物品
+//		case R.id.iv_secondgoods:
+//			Intent intent_secondgoods=new Intent(getActivity(), secondhandgoodsService.class);
+//			startActivity(intent_secondgoods);
+//			break;
+//			
+//        //跳转到外卖
+//		case R.id.iv_takeout:
+//			Intent intent_takeout=new Intent(getActivity(), takeoutService.class);
+//			startActivity(intent_takeout);
+//			break;
+//			
+//        //跳转到ktv
+//		case R.id.iv_ktv:
+//			Intent intent_ktv=new Intent(getActivity(), ktvService.class);
+//			startActivity(intent_ktv);
+//			break;
+//			
+//	    //跳转到电影
+//		case R.id.iv_movie:
+//			Intent intent_movie=new Intent(getActivity(), movie.class);
+//			startActivity(intent_movie);
+//			break;
 
 		}
 	}

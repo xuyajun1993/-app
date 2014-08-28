@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="自习室"
+                android:text="复临舍"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -218,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="复临舍"
+                android:text="中楼"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -245,17 +245,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="北楼"
+                android:text="二教"
                 android:textColor="#ffffff" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="中楼"
-                android:textColor="#ffffff" />
         </LinearLayout>
     </LinearLayout>
 

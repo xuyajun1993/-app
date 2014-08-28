@@ -29,12 +29,10 @@ public class lecFragment extends Fragment implements IXListViewListener{
 	}
 	@Override
 	public void onRefresh() {
-		// TODO Auto-generated method stub
 		
 	}
 	@Override
 	public void onLoadMore() {
-		// TODO Auto-generated method stub
 		
 	}
 }

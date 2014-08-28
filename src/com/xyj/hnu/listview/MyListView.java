@@ -3,6 +3,7 @@ package com.xyj.hnu.listview;
 import java.util.Date;
 
 import com.xyj.hnu.R;
+import com.xyj.hnu.app.AppContext;
 
 import android.widget.ListView;
 
@@ -290,13 +291,9 @@ public class MyListView extends ListView implements OnScrollListener {
 			mLastY = -1; // reset
 			if (getFirstVisiblePosition() == 0) {
 				// invoke refresh
-				if (mEnablePullRefresh
-						&& mHeaderView.getVisiableHeight() > mHeaderViewHeight) {
-					mPullRefreshing = true;
-					mHeaderView.setState(XListViewHeader.STATE_REFRESHING);
-					if (mListViewListener != null) {
-						mListViewListener.onRefresh();
-					}
+				if ((mEnablePullRefresh
+						&& mHeaderView.getVisiableHeight() > mHeaderViewHeight)) {
+					doRefreshing();
 				}
 				resetHeaderHeight();
 			}
@@ -311,6 +308,14 @@ public class MyListView extends ListView implements OnScrollListener {
 			break;
 		}
 		return super.onTouchEvent(ev);
+	}
+
+	public void doRefreshing() {
+		mPullRefreshing = true;
+		mHeaderView.setState(XListViewHeader.STATE_REFRESHING);
+		if (mListViewListener != null) {
+			mListViewListener.onRefresh();
+		}
 	}
 
 	@Override

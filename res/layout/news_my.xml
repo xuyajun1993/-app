@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <com.xyj.hnu.listview.MyListView
-        android:id="@+id/lv_head"
+        android:id="@+id/lv_my"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fastScrollEnabled="true"

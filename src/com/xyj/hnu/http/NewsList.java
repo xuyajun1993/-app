@@ -38,12 +38,11 @@ public class NewsList {
 					public void onResponse(JSONArray response) {
 						// 把json转化成list
 						System.out.println(response.toString());
-						Configs.head_list=gsonTransfer.getList(response.toString());
+						Configs.lec_list=gsonTransfer.getList(response.toString());
 						listViewAdapter.notifyDataSetChanged();
 						myLV.stopRefresh();
 					}
 				}, new ErrorListener() {
-
 					@Override
 					public void onErrorResponse(VolleyError error) {
 						Toast.makeText(activity, "刷新失败", 0).show();

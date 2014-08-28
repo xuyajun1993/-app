@@ -30,30 +30,31 @@ public class MainActivity extends Activity {
 	private ImageView mPage2;
 	private ImageView mPage3;
 	private Button btn_login;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//初始化设备参数
+		// 初始化设备参数
 		Metrics.setSreenInfo(this);
-		Configs.queue=Volley.newRequestQueue(this);
-		
+		Configs.queue = Volley.newRequestQueue(this);
+
 		// 读取shareprefernce中，看是否存在学号和密码，如果有，已经登陆过，如果没有，开启欢迎界面
-				SharedPreferences preferences = getSharedPreferences("config",
-						MODE_PRIVATE);
-				boolean isWelcomed = preferences.getBoolean("isWelcomed", false);
-				String user_xh=preferences.getString("USER_XH", null);
-				String passwd=preferences.getString("PASSWD", null);
-				if (!isWelcomed) {
-					setContentView(R.layout.activity_main);
-					welcome();
-				} else if(TextUtils.isEmpty(user_xh)||TextUtils.isEmpty(passwd)){
-					setContentView(R.layout.start);
-					Start2Login();
-				}else{
-					setContentView(R.layout.start);
-					StarttoOnline();
-				}
+		SharedPreferences preferences = getSharedPreferences("config",
+				MODE_PRIVATE);
+		boolean isWelcomed = preferences.getBoolean("isWelcomed", false);
+		String user_xh = preferences.getString("USER_XH", null);
+		String passwd = preferences.getString("PASSWD", null);
+		if (!isWelcomed) {
+			setContentView(R.layout.activity_main);
+			welcome();
+		} else if (TextUtils.isEmpty(user_xh) || TextUtils.isEmpty(passwd)) {
+			setContentView(R.layout.start);
+			Start2Login();
+		} else {
+			setContentView(R.layout.start);
+			StarttoOnline();
+		}
 	}
 
 	private void Start2Login() {
@@ -71,12 +72,14 @@ public class MainActivity extends Activity {
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Intent intent = new Intent(MainActivity.this, MainFragment.class);
+				Intent intent = new Intent(MainActivity.this,
+						MainFragment.class);
 				startActivity(intent);
 				MainActivity.this.finish();
 			}
 		}, 1000);
 	}
+
 	private void welcome() {
 		// 绑定
 		mViewPager = (ViewPager) findViewById(R.id.hnu_viewpager);
@@ -128,7 +131,7 @@ public class MainActivity extends Activity {
 							Intent intent = new Intent(MainActivity.this,
 									login.class);
 							startActivity(intent);
-                            MainActivity.this.finish();
+							MainActivity.this.finish();
 						}
 					});
 				}
@@ -187,5 +190,5 @@ public class MainActivity extends Activity {
 			}
 		}
 	}
-	
+
 }
