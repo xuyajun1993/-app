@@ -27,8 +27,7 @@ public class MyFragment extends Fragment implements IXListViewListener{
 		listView = (MyListView) v.findViewById(R.id.lv_my);
 		listView.setPullLoadEnable(true);
 		listView.setXListViewListener(this);
-		initMyLV lv = new initMyLV(inflater, getActivity(), listView,
-				Configs.queue);
+		initMyLV lv = new initMyLV(inflater, getActivity(), listView);
 		lv.initNews();
 		listViewAdapter = new MyListViewAdapter(getActivity(),
 				Configs.my_list, Configs.queue);

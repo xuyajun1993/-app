@@ -21,8 +21,7 @@ public class lecFragment extends Fragment implements IXListViewListener{
 			Bundle savedInstanceState) {
 		View v=inflater.inflate(R.layout.news_lec, null);
 		listView = (MyListView) v.findViewById(R.id.lv_lec);
-		initMyLV lv = new initMyLV(inflater, getActivity(), listView,
-				Configs.queue);
+		initMyLV lv = new initMyLV(inflater, getActivity(), listView);
 		lv.initNews();
 		
 		return v;

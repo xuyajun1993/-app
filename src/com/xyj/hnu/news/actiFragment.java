@@ -22,8 +22,8 @@ public class actiFragment extends Fragment implements IXListViewListener{
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.news_acti, null);
 		listView = (MyListView) v.findViewById(R.id.lv_acti);
-		initMyLV lv = new initMyLV(inflater, getActivity(), listView,
-				Configs.queue);
+		initMyLV lv = new initMyLV(inflater, getActivity(), listView
+				);
 		lv.initNews();
 		
 		return v;

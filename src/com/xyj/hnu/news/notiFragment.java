@@ -21,8 +21,7 @@ public class notiFragment extends Fragment implements IXListViewListener{
 			Bundle savedInstanceState) {
 		View v=inflater.inflate(R.layout.news_noti, null);
 		listView = (MyListView) v.findViewById(R.id.lv_noti);
-		initMyLV lv = new initMyLV(inflater, getActivity(), listView,
-				Configs.queue);
+		initMyLV lv = new initMyLV(inflater, getActivity(), listView);
 		lv.initNews();
 		
 		return v;

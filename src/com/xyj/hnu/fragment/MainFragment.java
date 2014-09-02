@@ -3,6 +3,7 @@ package com.xyj.hnu.fragment;
 import java.util.Timer;
 import java.util.TimerTask;
 import com.xyj.hnu.R;
+import com.xyj.hnu.app.AppManager;
 import com.xyj.hnu.tools.Configs;
 
 import android.content.Intent;
@@ -49,13 +50,12 @@ public class MainFragment extends FragmentActivity implements BottomFragment.Cal
 	
 	public void onBackPressed() {
 		if (isExit) {
-			finish();
+			AppManager.getAppManager().AppExit(getApplicationContext());
 		} else {
 			isExit = true;
 			Toast.makeText(MainFragment.this, "再按一次退出", Toast.LENGTH_SHORT)
 					.show();
 			timeTask = new TimerTask() {
-
 				@Override
 				public void run() {
 					isExit = false;

@@ -12,12 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xyj.hnu.R;
+import com.xyj.hnu.tools.Metrics;
 
 @SuppressLint("NewApi")
 public class emptyroomService extends Activity implements OnClickListener {
 	private TextView textview1,textview2,textview3,textview4,textview5,
-	textview6,textview7,textview8,textview9,textview10,textview11,textview12,textview13,
-	textview14,textview15;
+	textview6,textview7,tv_write,textview8,textview9,textview10,textview11,textview12,
+	textview13;
 	Drawable allday0, allday1,class120, class121,class340, class341,class560, class561,
 	class780, class781,class9100, class9101,class11120, class11121;
 	private LinearLayout linelayout1,linelayout2,linelayout3,linelayout4,
@@ -27,7 +28,7 @@ public class emptyroomService extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.emptyroomquery);
-		int width = getWindowManager().getDefaultDisplay().getWidth();
+		int width = Metrics.getWidthPixels();
 		textview1 = (TextView) findViewById(R.id.textView1);
 		textview2 = (TextView) findViewById(R.id.textView2);
 		textview3 = (TextView) findViewById(R.id.textView3);
@@ -35,14 +36,13 @@ public class emptyroomService extends Activity implements OnClickListener {
 		textview5 = (TextView) findViewById(R.id.textView5);
 		textview6 = (TextView) findViewById(R.id.textView6);
 		textview7 = (TextView) findViewById(R.id.textView7);
-		textview8 = (TextView) findViewById(R.id.tv_write);
-		textview9 = (TextView) findViewById(R.id.textView8);
-		textview10 = (TextView) findViewById(R.id.textView9);
-		textview11 = (TextView) findViewById(R.id.textView10);
-		textview12 = (TextView) findViewById(R.id.textView11);
-		textview13 = (TextView) findViewById(R.id.textView12);
-		textview14 = (TextView) findViewById(R.id.textView13);
-		textview15 = (TextView) findViewById(R.id.textView14);
+		tv_write = (TextView) findViewById(R.id.tv_write);
+		textview8 = (TextView) findViewById(R.id.textView8);
+		textview9 = (TextView) findViewById(R.id.textView9);
+		textview10 = (TextView) findViewById(R.id.textView10);
+		textview11 = (TextView) findViewById(R.id.textView11);
+		textview12 = (TextView) findViewById(R.id.textView12);
+		textview13 = (TextView) findViewById(R.id.textView13);
 		linelayout1 = (LinearLayout) findViewById(R.id.linelayout1);
 		linelayout2 = (LinearLayout) findViewById(R.id.linelayout2);
 		linelayout3 = (LinearLayout) findViewById(R.id.linelayout3);
@@ -57,14 +57,13 @@ public class emptyroomService extends Activity implements OnClickListener {
 		textview5.setWidth(width/4);
 		textview6.setWidth(width/4);
 		textview7.setWidth(width/4);
-		textview8.setWidth(width/4);
-		textview9.setWidth(width/7);
-		textview10.setWidth(width/7);
-		textview11.setWidth(width/7);
-		textview12.setWidth(width/7);
-		textview13.setWidth(width/7);
-		textview14.setWidth(width/7);
-		textview15.setWidth(width/7);
+		tv_write.setWidth(width/4);
+		textview8.setWidth(width/6);
+		textview9.setWidth(width/6);
+		textview10.setWidth(width/6);
+		textview11.setWidth(width/6);
+		textview12.setWidth(width/6);
+		textview13.setWidth(width/6);
 		textview1.setOnClickListener(this);
 		textview2.setOnClickListener(this);
 		textview3.setOnClickListener(this);
@@ -72,13 +71,12 @@ public class emptyroomService extends Activity implements OnClickListener {
 		textview5.setOnClickListener(this);
 		textview6.setOnClickListener(this);
 		textview7.setOnClickListener(this);
+		textview8.setOnClickListener(new buildingListener());
 		textview9.setOnClickListener(new buildingListener());
 		textview10.setOnClickListener(new buildingListener());
 		textview11.setOnClickListener(new buildingListener());
 		textview12.setOnClickListener(new buildingListener());
 		textview13.setOnClickListener(new buildingListener());
-		textview14.setOnClickListener(new buildingListener());
-		textview15.setOnClickListener(new buildingListener());
 		ready();
 	}
 			
@@ -239,47 +237,43 @@ public class emptyroomService extends Activity implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			if(R.id.textView8==v.getId()){
+			if(R.id.textView9==v.getId()){
 				textview9.setBackgroundResource(R.drawable.cursor);
 			}else{
 				textview9.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView9==v.getId()){
+			if(R.id.textView10==v.getId()){
 				textview10.setBackgroundResource(R.drawable.cursor);
 			}else{
 				textview10.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView10==v.getId()){
+			if(R.id.textView11==v.getId()){
 				textview11.setBackgroundResource(R.drawable.cursor);
 			}else{
 				textview11.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView11==v.getId()){
+			if(R.id.textView12==v.getId()){
 				textview12.setBackgroundResource(R.drawable.cursor);
 			}else{
 				textview12.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView12==v.getId()){
+			if(R.id.textView13==v.getId()){
 				textview13.setBackgroundResource(R.drawable.cursor);
 			}else{
 				textview13.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView13==v.getId()){
-				textview14.setBackgroundResource(R.drawable.cursor);
+			if(R.id.textView8==v.getId()){
+				textview8.setBackgroundResource(R.drawable.cursor);
 			}else{
-				textview14.setBackgroundColor(Color.parseColor("#666666"));
+				textview8.setBackgroundColor(Color.parseColor("#666666"));
 			}
 			
-			if(R.id.textView14==v.getId()){
-				textview15.setBackgroundResource(R.drawable.cursor);
-			}else{
-				textview15.setBackgroundColor(Color.parseColor("#666666"));
-			}
+			
 		}
 
 	}

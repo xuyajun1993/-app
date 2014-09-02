@@ -20,6 +20,7 @@ import com.xyj.hnu.R;
 import com.xyj.hnu.adapter.AdvViewPager;
 import com.xyj.hnu.adapter.MyListViewAdapter;
 import com.xyj.hnu.adapter.bannerPageAdapter;
+import com.xyj.hnu.tools.Configs;
 import com.xyj.hnu.tools.Metrics;
 
 /**
@@ -34,16 +35,14 @@ public class initMyLV {
 	LayoutInflater inflater;
 	Activity activity;
 	MyListView myLV;
-	RequestQueue queue;
 	MyListViewAdapter listViewAdapter;
 	int height;
 
 	public initMyLV(LayoutInflater inflater, Activity activity,
-			MyListView myLV, RequestQueue queue) {
+			MyListView myLV) {
 		this.inflater = inflater;
 		this.activity = activity;
 		this.myLV = myLV;
-		this.queue = queue;
 		// 设置banner高度
 		height = (9 * Metrics.getWidthPixels()) / 16;
 	}
@@ -56,11 +55,12 @@ public class initMyLV {
 			final AdvViewPager advViewPager = (AdvViewPager) rlAdv
 					.findViewById(R.id.vpAdv);
 			ViewGroup group = (ViewGroup) rlAdv.findViewById(R.id.viewGroup);
-			// 获取banner图片
-			// final List<View> bannerList =
-			// BannerUtils.getBannerList(activity);
 			advViewPager.getLayoutParams().height = height;
-			final List<ImageView> bannerIvList = new ArrayList<ImageView>();
+			Configs.bannerIvList = new ArrayList<ImageView>();
+			//从缓存中取出四张banner
+			
+			
+			
 			ImageView iv1 = new ImageView(activity);
 			iv1.setScaleType(ScaleType.FIT_XY);
 			ImageView iv2 = new ImageView(activity);
@@ -69,21 +69,21 @@ public class initMyLV {
 			iv3.setScaleType(ScaleType.FIT_XY);
 			ImageView iv4 = new ImageView(activity);
 			iv4.setScaleType(ScaleType.FIT_XY);
-			bannerIvList.add(iv1);
-			bannerIvList.add(iv2);
-			bannerIvList.add(iv3);
-			bannerIvList.add(iv4);
+			Configs.bannerIvList.add(iv1);
+			Configs.bannerIvList.add(iv2);
+			Configs.bannerIvList.add(iv3);
+			Configs.bannerIvList.add(iv4);
 			// 保存下面变化的tag
-			final ImageView[] DotArray = new ImageView[bannerIvList.size()];
+			final ImageView[] DotArray = new ImageView[Configs.bannerIvList.size()];
 			// 设置适配器
 			bannerPageAdapter bannerAdapter = new bannerPageAdapter(
-					bannerIvList, queue);
+					Configs.bannerIvList);
 			advViewPager.setAdapter(bannerAdapter);
 			advViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 				@Override
 				public void onPageSelected(int arg0) {
 					currentPage = arg0;
-					for (int i = 0; i < bannerIvList.size(); i++) {
+					for (int i = 0; i < Configs.bannerIvList.size(); i++) {
 						if (i == arg0) {
 							DotArray[i]
 									.setBackgroundResource(R.drawable.banner_dian_focus);
@@ -106,7 +106,7 @@ public class initMyLV {
 			});
 			// 在右下角添加滑动tag
 			ImageView imageView;
-			for (int i = 0; i < bannerIvList.size(); i++) {
+			for (int i = 0; i < Configs.bannerIvList.size(); i++) {
 				imageView = new ImageView(activity);
 				LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(15, 15);
 				layout.setMargins(10, 0, 0, 0);
@@ -138,7 +138,7 @@ public class initMyLV {
 						try {
 							Thread.sleep(3000);
 							currentPage++;
-							if (currentPage > bannerIvList.size() - 1) {
+							if (currentPage > Configs.bannerIvList.size() - 1) {
 								currentPage = 0;
 							}
 							handler.sendEmptyMessage(currentPage);

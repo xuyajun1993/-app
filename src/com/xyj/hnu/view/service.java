@@ -10,33 +10,37 @@ import android.widget.ImageView;
 
 import com.xyj.hnu.R;
 import com.xyj.hnu.fragment.GeneralFragment;
+import com.xyj.hnu.service.clubService;
 import com.xyj.hnu.service.emptyroomService;
-import com.xyj.hnu.service.movie;
+import com.xyj.hnu.service.flowService;
+import com.xyj.hnu.service.libraryService;
+import com.xyj.hnu.service.scheduleService;
+import com.xyj.hnu.service.scoreService;
 
 public class service extends GeneralFragment implements OnClickListener {
 	private ImageView iv_query;
-	private ImageView iv_repair;
-	private ImageView iv_secondgoods;
-	private ImageView iv_takeout;
-	private ImageView iv_ktv;
-	private ImageView iv_movie;
+	private ImageView iv_club;
+	private ImageView iv_class;
+	private ImageView iv_score;
+	private ImageView iv_flow;
+	private ImageView iv_library;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.service, container, false);
 		iv_query = (ImageView) view.findViewById(R.id.iv_query);
-		iv_repair = (ImageView) view.findViewById(R.id.iv_repair);
-		iv_secondgoods = (ImageView) view.findViewById(R.id.iv_secondgoods);
-		iv_takeout = (ImageView) view.findViewById(R.id.iv_takeout);
-		iv_ktv = (ImageView) view.findViewById(R.id.iv_ktv);
-		iv_movie = (ImageView) view.findViewById(R.id.iv_movie);
+		iv_club = (ImageView) view.findViewById(R.id.iv_club);
+		iv_class = (ImageView) view.findViewById(R.id.iv_class);
+		iv_score = (ImageView) view.findViewById(R.id.iv_score);
+		iv_flow = (ImageView) view.findViewById(R.id.iv_flow);
+		iv_library = (ImageView) view.findViewById(R.id.iv_library);
 		iv_query.setOnClickListener(this);
-		iv_repair.setOnClickListener(this);
-		iv_secondgoods.setOnClickListener(this);
-		iv_takeout.setOnClickListener(this);
-		iv_ktv.setOnClickListener(this);
-		iv_movie.setOnClickListener(this);
+		iv_club.setOnClickListener(this);
+		iv_class.setOnClickListener(this);
+		iv_score.setOnClickListener(this);
+		iv_library.setOnClickListener(this);
+		iv_flow.setOnClickListener(this);
 		return view;
 	}
 
@@ -49,36 +53,35 @@ public class service extends GeneralFragment implements OnClickListener {
 			startActivity(intent_emptyroom);
 			break;
 
-//		//跳转到故障报修
-//		case R.id.iv_repair:
-//			Intent intent_repair=new Intent(getActivity(), repairPost.class);
-//			startActivity(intent_repair);
-//			break;
-//			
-//        //跳转到二手物品
-//		case R.id.iv_secondgoods:
-//			Intent intent_secondgoods=new Intent(getActivity(), secondhandgoodsService.class);
-//			startActivity(intent_secondgoods);
-//			break;
-//			
-//        //跳转到外卖
-//		case R.id.iv_takeout:
-//			Intent intent_takeout=new Intent(getActivity(), takeoutService.class);
-//			startActivity(intent_takeout);
-//			break;
-//			
-//        //跳转到ktv
-//		case R.id.iv_ktv:
-//			Intent intent_ktv=new Intent(getActivity(), ktvService.class);
-//			startActivity(intent_ktv);
-//			break;
-//			
-//	    //跳转到电影
-//		case R.id.iv_movie:
-//			Intent intent_movie=new Intent(getActivity(), movie.class);
-//			startActivity(intent_movie);
-//			break;
-
+		//跳转到社团
+		case R.id.iv_club:
+			Intent intent_club=new Intent(getActivity(), clubService.class);
+			startActivity(intent_club);
+			break;
+			
+        //跳转到课表
+		case R.id.iv_class:
+			Intent intent_schedule=new Intent(getActivity(), scheduleService.class);
+			startActivity(intent_schedule);
+			break;
+			
+        //跳转到成绩
+		case R.id.iv_score:
+			Intent intent_score=new Intent(getActivity(), scoreService.class);
+			startActivity(intent_score);
+			break;
+			
+        //跳转到图书馆
+		case R.id.iv_library:
+			Intent intent_library=new Intent(getActivity(), libraryService.class);
+			startActivity(intent_library);
+			break;
+			
+	    //跳转到流量
+		case R.id.iv_flow:
+			Intent intent_flow=new Intent(getActivity(), flowService.class);
+			startActivity(intent_flow);
+			break;
 		}
 	}
 

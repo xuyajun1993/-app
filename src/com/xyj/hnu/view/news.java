@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xyj.hnu.R;
+import com.xyj.hnu.app.AppManager;
 import com.xyj.hnu.fragment.GeneralFragment;
 import com.xyj.hnu.news.actiFragment;
 import com.xyj.hnu.news.lecFragment;
@@ -58,7 +59,6 @@ public class news extends GeneralFragment implements OnClickListener {
 		tvActi.setOnClickListener(this);
 		tvMy.setOnClickListener(this);
 		tvLec.setOnClickListener(this);
-		System.out.println("oncreateview");
 		viewPager.setAdapter(new MyPageAdaper(getActivity()
 				.getSupportFragmentManager()));
 		viewPager.setOnPageChangeListener(new MyOnPageListener());
@@ -84,6 +84,7 @@ public class news extends GeneralFragment implements OnClickListener {
 		views.add(new actiFragment());
 		views.add(new lecFragment());
 		views.add(new MyFragment());
+		AppManager.getAppManager().addActivity(getActivity());
 	}
 
 	@SuppressLint("ResourceAsColor")

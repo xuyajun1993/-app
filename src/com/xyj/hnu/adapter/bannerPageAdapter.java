@@ -19,14 +19,9 @@ import android.widget.ImageView;
  */
 public class bannerPageAdapter extends PagerAdapter {
 	static List<ImageView> bannerList;
-	static RequestQueue queue;
 
-	public bannerPageAdapter(List<ImageView> bannerIvList,RequestQueue queue) {
+	public bannerPageAdapter(List<ImageView> bannerIvList) {
 		bannerPageAdapter.bannerList=bannerIvList;
-		bannerPageAdapter.queue=queue;
-		for(int i=0;i<bannerList.size();i++){
-			new BannerUtils().getBanner(queue, bannerList.get(i),Configs.url[i]);
-		}
 	}
 
 	@Override

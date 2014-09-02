@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.android.volley.toolbox.Volley;
 import com.xyj.hnu.R;
+import com.xyj.hnu.app.AppManager;
 import com.xyj.hnu.fragment.MainFragment;
 import com.xyj.hnu.tools.Configs;
 import com.xyj.hnu.tools.Metrics;
@@ -38,7 +39,8 @@ public class MainActivity extends Activity {
 		// 初始化设备参数
 		Metrics.setSreenInfo(this);
 		Configs.queue = Volley.newRequestQueue(this);
-
+        //加入到栈
+		AppManager.getAppManager().addActivity(this);
 		// 读取shareprefernce中，看是否存在学号和密码，如果有，已经登陆过，如果没有，开启欢迎界面
 		SharedPreferences preferences = getSharedPreferences("config",
 				MODE_PRIVATE);
@@ -63,7 +65,7 @@ public class MainActivity extends Activity {
 			public void run() {
 				Intent intent = new Intent(MainActivity.this, login.class);
 				startActivity(intent);
-				MainActivity.this.finish();
+				AppManager.getAppManager().finishActivity();
 			}
 		}, 1000);
 	}
@@ -75,7 +77,7 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(MainActivity.this,
 						MainFragment.class);
 				startActivity(intent);
-				MainActivity.this.finish();
+				AppManager.getAppManager().finishActivity();
 			}
 		}, 1000);
 	}

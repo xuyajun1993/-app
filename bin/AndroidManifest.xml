@@ -47,6 +47,26 @@
             android:name="com.xyj.hnu.login"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.xyj.hnu.service.clubService"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.xyj.hnu.service.flowService"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.xyj.hnu.service.libraryService"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.xyj.hnu.service.scheduleService"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.xyj.hnu.service.scoreService"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

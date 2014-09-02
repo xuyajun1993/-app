@@ -101,6 +101,7 @@ public class MyListView extends ListView implements OnScrollListener {
 					@Override
 					public void onGlobalLayout() {
 						mHeaderViewHeight = mHeaderViewContent.getHeight();
+						System.out.println("mHeaderViewHeight"+mHeaderViewHeight);
 						getViewTreeObserver()
 								.removeGlobalOnLayoutListener(this);
 					}
@@ -192,9 +193,10 @@ public class MyListView extends ListView implements OnScrollListener {
 		}
 	}
 
-	private void updateHeaderHeight(float delta) {
+	public void updateHeaderHeight(float delta) {
 		mHeaderView.setVisiableHeight((int) delta
 				+ mHeaderView.getVisiableHeight());
+		System.out.println("getVisiableHeight"+mHeaderView.getVisiableHeight());
 		if (mEnablePullRefresh && !mPullRefreshing) { // 鏈浜庡埛鏂扮姸鎬侊紝鏇存柊绠ご
 			if (mHeaderView.getVisiableHeight() > mHeaderViewHeight) {
 				mHeaderView.setState(XListViewHeader.STATE_READY);
@@ -274,6 +276,7 @@ public class MyListView extends ListView implements OnScrollListener {
 		case MotionEvent.ACTION_MOVE:
 			final float deltaY = ev.getRawY() - mLastY;
 			mLastY = ev.getRawY();
+			System.out.println("deltay"+deltaY);
 //			System.out.println("鏁版嵁鐩戞祴锛� "+ getFirstVisiblePosition() + "---->"
 //					+ getLastVisiblePosition());
 			if (getFirstVisiblePosition() == 0
