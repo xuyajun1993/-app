@@ -1,8 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:background="#f5f4f4"
+    android:orientation="vertical"
+     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40sp"
+        android:background="@drawable/titlebar"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="我的成绩单"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#494d56" >
+
+        <FrameLayout
+            android:id="@+id/framelayout1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/termtext_style"
+                    android:text="大一上" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/termtext_style"
+                    android:text="大二上" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/termtext_style"
+                    android:text="大三上" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/termtext_style"
+                    android:text="大四上" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line_cursor1"
+                android:layout_width="wrap_content"
+                android:layout_height="3dip"
+                android:layout_marginTop="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cursor" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/down"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/down" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/score_line" />
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#494d56"
+        android:visibility="gone" >
+
+        <FrameLayout
+            android:id="@+id/framelayout2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/termtext_style"
+                    android:text="大一下" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/termtext_style"
+                    android:text="大二下" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/termtext_style"
+                    android:text="大三下" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/termtext_style"
+                    android:text="大四下" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line_cursor2"
+                android:layout_width="wrap_content"
+                android:layout_height="3dip"
+                android:layout_marginTop="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cursor"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/up"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/up" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_schedule"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:background="#f5f4f4"
+             >
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="学分"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/scoretype"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/downtype"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="有效成绩"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/downtype"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/downtype" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:text="课程"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+<View 
+    android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+    />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/score_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:listSelector="#00000000">
+         <!-- android:listSelector="#00000000" 颜色设置透明 listview无点击效果 -->
+            </ListView>
+        </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -3,11 +3,10 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="#f5f4f4"
-    tools:context=".MainActivity" >
-
-    <RelativeLayout
+    android:orientation="vertical"
+     >
+     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="40sp"
         android:background="@drawable/titlebar"
@@ -19,12 +18,12 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="空闲教室"
+            android:text="空教室查询"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/imageButtonback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -34,249 +33,246 @@
             android:src="@drawable/back" />
 
     </RelativeLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
+<LinearLayout 
+    android:id="@+id/classes"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <RadioGroup
+        android:id="@+id/classrg1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:id="@+id/linelayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#999999"
-            android:gravity="center" >
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/allday_selector"
+                android:gravity="center"
+                android:text="全天"
+                android:textColor="@drawable/color_radiotext" />
 
-            <TextView
-                android:id="@+id/textView1"
+            <ImageView
+                android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/allday1"
-                android:textColor="#990000"
-                android:gravity="center"
-                android:text="全天" />
-        </LinearLayout>
+                android:src="@drawable/su_line" />
 
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/class12_selector"
+                android:gravity="center"
+                android:text="1-2节"
+                android:textColor="@drawable/color_radiotext" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/su_line" />
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/class34_selector"
+                android:gravity="center"
+                android:text="3-4节"
+                android:textColor="@drawable/color_radiotext" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/su_line" />
+
+            <RadioButton
+                android:id="@+id/radio4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/class56_selector"
+                android:gravity="center"
+                android:text="5-6节"
+                android:textColor="@drawable/color_radiotext" />
+	</RadioGroup>
         <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <LinearLayout
-            android:id="@+id/linelayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class120"
-                android:gravity="center"
-                android:textColor="#999999"
-                android:text="1-2节" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <LinearLayout
-            android:id="@+id/linelayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class340"
-                android:gravity="center"
-                android:textColor="#999999"
-                android:text="3-4节" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <LinearLayout
-            android:id="@+id/linelayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class560"
-                android:gravity="center"
-                android:textColor="#999999"
-                android:text="5-6节" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/heng_line" />
+<RadioGroup
+        android:id="@+id/classrg2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:textColor="#999999"
-        android:src="@drawable/heng_line" />
+        android:orientation="horizontal" >
+        
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" >
+            <RadioButton
+                android:id="@+id/radio5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/class78_selector"
+                android:gravity="center"
+                android:text="7-8节"
+                android:textColor="@drawable/color_radiotext" />
 
-        <LinearLayout
-            android:id="@+id/linelayout5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="#999999"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView5"
+            <ImageView
+                android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class780"
+                android:src="@drawable/su_line" />
+
+            <RadioButton
+                android:id="@+id/radio6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:button="@null"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/class910_selector"
                 android:gravity="center"
-                android:textColor="#999999"
-                android:text="7-8节" />
-        </LinearLayout>
+                android:text="9-10节"
+                android:textColor="@drawable/color_radiotext" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <LinearLayout
-            android:id="@+id/linelayout6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView6"
+            <ImageView
+                android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class9100"
+                android:src="@drawable/su_line" />
+
+            <RadioButton
+                android:id="@+id/radio7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:button="@null"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/class1112_selector"
                 android:gravity="center"
-                android:textColor="#999999"
-                android:text="9-10节" />
-        </LinearLayout>
+                android:text="11-12节"
+                android:textColor="@drawable/color_radiotext" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <LinearLayout
-            android:id="@+id/linelayout7"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView7"
+            <ImageView
+                android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/class11120"
-                android:gravity="center"
-                android:textColor="#999999"
-                android:text="11-12节" />
-        </LinearLayout>
+                android:src="@drawable/su_line" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/su_line" />
-
-        <TextView
-            android:id="@+id/tv_write"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_write"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+    </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="#666666"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="#666666" >
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/roomrg"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_margin="5dp"
-            android:gravity="center" >
+            android:layout_margin="7dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/radioall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/room_selector"
+                android:button="@null"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="全部"
+                android:textSize="15sp"
+                android:textColor="#ffffff" />
+
+           <RadioButton
+                android:id="@+id/radiofl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/room_selector"
+                android:button="@null"
+                android:layout_weight="1"
+                android:text="复临舍"
+                android:textSize="15sp"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radiozh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/room_selector"
+                android:button="@null"
+                android:layout_weight="1"
+                android:text="综合楼"
+                android:textSize="15sp"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radiodl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/room_selector"
+                android:button="@null"
+                android:layout_weight="1"
+                android:text="东楼"
+                android:textSize="15sp"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioej"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/room_selector"
+                android:button="@null"
+                android:text="二教"
+                android:textSize="15sp"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radiozl"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@drawable/cursor"
-                android:text="全部"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="复临舍"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:background="@drawable/room_selector"
+                android:button="@null"
                 android:text="中楼"
+                android:textSize="15sp"
                 android:textColor="#ffffff" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="综合楼"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="东楼" 
-                android:textColor="#ffffff"/>
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="二教"
-                android:textColor="#ffffff" />
-
-        </LinearLayout>
+        </RadioGroup>
     </LinearLayout>
 
 </LinearLayout>
